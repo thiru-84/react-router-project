@@ -38,7 +38,7 @@ function Cart({ cart, setCart }) {
 
       if (!itemExists) {
         const updatedCart = [...prevCart, product];
-        console.log("Updated Cart:", updatedCart); // Debugging log
+        console.log("Updated Cart:", updatedCart); 
         return updatedCart;
       } else {
         alert("Item already added to the cart");
