@@ -84,7 +84,7 @@ function Cart({ cart, setCart }) {
               cart.map((cartItem) => (
                 <div
                   key={cartItem.id}
-                  className="flex justify-between items-center pt-3 pb-3 border-b border-slate-300"
+                  className="flex flex-col md:flex-row justify-between md:items-center pt-3 pb-3 border-b border-slate-300"
                 >
                   <div className="flex gap-6 items-center">
                     <div className="w-26 h-26 bg-gray-100 rounded-md overflow-hidden">
@@ -105,59 +105,61 @@ function Cart({ cart, setCart }) {
                     </div>
                   </div>
 
-                  {/* Quantity Buttons */}
-                  <div className="flex gap-4 items-center">
-                    <button
-                      onClick={() => handleDecrease(cartItem.id)}
-                      className=" w-8 h-8 flex justify-center border border-gray-300 rounded-md p-1 cursor-pointer hover:bg-gray-100"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="size-6"
+                  <div className="flex gap-4 mt-4 md:mt-0">
+                    {/* Quantity Buttons */}
+                    <div className="flex gap-4 items-center">
+                      <button
+                        onClick={() => handleDecrease(cartItem.id)}
+                        className=" w-8 h-8 flex justify-center border border-gray-300 rounded-md p-1 cursor-pointer hover:bg-gray-100"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 12h14"
-                        />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 12h14"
+                          />
+                        </svg>
+                      </button>
 
-                    <div>{cartItem.quantity ?? 1}</div>
+                      <div>{cartItem.quantity ?? 1}</div>
+
+                      <button
+                        onClick={() => handleIncrease(cartItem.id)}
+                        className=" w-8 h-8 flex justify-center border border-gray-300 rounded-md p-1 cursor-pointer hover:bg-gray-100"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 4.5v15m7.5-7.5h-15"
+                          />
+                        </svg>
+                      </button>
+                    </div>
 
                     <button
-                      onClick={() => handleIncrease(cartItem.id)}
-                      className=" w-8 h-8 flex justify-center border border-gray-300 rounded-md p-1 cursor-pointer hover:bg-gray-100"
+                      onClick={() => removeFromCart(cartItem.id)}
+                      className="flex h-6 items-center hover:text-red-900 hover:bg-red-100 rounded-full cursor-pointer border border-red-700"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="size-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 4.5v15m7.5-7.5h-15"
-                        />
-                      </svg>
+                      <span className="text-sm text-red-700 underline px-2 py-1">
+                        Remove
+                      </span>
                     </button>
                   </div>
-
-                  <button
-                    onClick={() => removeFromCart(cartItem.id)}
-                    className="flex h-6 items-center hover:text-red-900 hover:bg-red-100 rounded-full cursor-pointer border border-red-700"
-                  >
-                    <span className="text-sm text-red-700 underline px-2 py-1">
-                      Remove
-                    </span>
-                  </button>
                 </div>
               ))
             )}
