@@ -49,7 +49,7 @@ function Cart({ cart, setCart }) {
   };
 
   return (
-    <div className="container mx-auto lg:w-[650px] mt-18">
+    <div className="container mx-auto lg:w-[650px] mt-8 md:mt-18">
       <div className="mx-6 flex flex-col justify-center">
         <Link to="/">
           <div className="flex gap-3 text-blue-500">
